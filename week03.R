@@ -7,6 +7,6 @@ disastersfiltered <- disasters %>%
 view(disastersfiltered)
 disasterstopten <- disastersfiltered %>%
   group_by(Entity) %>%
-  summarise(avg_deaths = mean(total_deaths, na.rm = TRUE) %>% round(2) #, avg_homeless = (mean(total_homeless, na.rm = TRUE) %>% round(2)), avg_injured = (mean(total_injured, na.rm = TRUE) %>% round(2))
+  summarise(avg_deaths = mean(total_deaths) %>% round(2), avg_homeless = mean(total_homeless) %>% round(2), avg_injured = mean(total_injured, na.rm = TRUE) %>% round(2))
 view(disasterstopten)
 summarise  
