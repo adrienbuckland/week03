@@ -27,6 +27,16 @@ disasterstopinjured <- disastersavg %>%
   arrange(desc(avg_injured)) %>%
   slice(2:11)
 
-disasterstopdeaths
-disasterstophomeless
-disasterstopinjured
+#detect if a country has over 500 total deaths in a year
+df <- disasters
+df$over_500_deaths <- c(FALSE)
+df$over_500_deaths[df$deaths_all_disasters > 500] <- TRUE
+view(df)
+
+#pivoted longer with separate entries for each condition
+longdisastersfiltered <- disastersfiltered %>%
+  pivot_longer(
+    cols = c("total_deaths", "total_homeless", "total_injured"),
+    names_to = "effect",
+    values_to = "number_affected"
+  )
