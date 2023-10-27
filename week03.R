@@ -40,3 +40,4 @@ longdisastersfiltered <- disastersfiltered %>%
     names_to = "effect",
     values_to = "number_affected"
   )
+
